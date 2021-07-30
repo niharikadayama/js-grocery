@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Grocery shop</title>
+</head>
+<body>
+    <h1>All In  One General Store</h1>
+    
+    <!-- Search-bar -->
+    <label>
+        <input id="search" type="text" placeholder="Search The Item You Want" name ="item">
+        <div id="search-return">
+
+        </div>
+    </label>
+
+    <div class="flex-container">
+        <div>
+            <!-- Display -->
+            <button id="display">Display</button>
+
+            <table id="grocery">
+                <tr>   
+                    <th>Item</th>  
+                </tr>
+                <tr class="item"></tr>
+                <tr>
+                    <th>Price</th>
+                </tr>
+                <tr class="price"></tr>
+                <tr>
+                    <th>Left</th>
+                </tr>
+                <tr class="left"></tr>
+            </table>
+        </div>
+        <div>
+            <form id="addItem">
+                <input type="text" placeholder="Add New Item" name="additem">
+                <input type="text" placeholder="Add price" name="addprice">
+                <input type="text" placeholder="Add quantity" name="addquantity">
+                <button id="add">Add Item</button>
+            </form>
+        </div>
+        <div>
+            <button id="remove">Remove</button>
+        </div>  
+    </div>
+    
+    <script src="grocery.js"></script>
+
+</body>
+</html>
