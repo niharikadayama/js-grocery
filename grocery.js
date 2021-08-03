@@ -1,44 +1,15 @@
-const groceries = [{
-   item: 'Milk',
-   price: 15,
-   left: 2
-},{
-    item: 'Bread',
-    price: 10,
-    left: 5
-},{
-    item: 'Sauce',
-    price: 20,
-    left: 6
-},{
-    item: 'Egg',
-    price: 6,
-    left: 0
-}]
-
-
+const groceries = showSavedItem()
 
 const filters = {
     searchText:'',
     leftItem: 0
 }
 
-const renderGrocery = function(groceries, filters){
-    const filterGrocery = groceries.filter(function(grocery){
-        return grocery.item.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
-
-    document.querySelector('#search-return').innerHTML = ''
-
-    filterGrocery.forEach(function(grocery){
-        const items = document.createElement('p')
-        items.textContent = grocery.item
-        document.querySelector('#search-return').appendChild(items)
-    })
-}
-
 const summary = document.querySelector('#display').addEventListener('click',function(e){
-    
+    document.querySelector('.item').innerHTML = ''
+    document.querySelector('.price').innerHTML = ''
+    document.querySelector('.left').innerHTML = ''
+    document.querySelector('.date').innerHTML = '';
     groceries.forEach(function(grocery){
         const itemDisplay = document.createElement('td')
         itemDisplay.textContent = grocery.item
@@ -51,6 +22,11 @@ const summary = document.querySelector('#display').addEventListener('click',func
         const leftDisplay = document.createElement('td')
         leftDisplay.textContent = grocery.left
         document.querySelector('.left').appendChild(leftDisplay)
+
+        const DateDisplay = document.createElement('td')
+        DateDisplay.textContent = grocery.date
+        document.querySelector('.date').appendChild(DateDisplay)
+
     })
     
 })
@@ -65,13 +41,17 @@ document.querySelector('#addItem').addEventListener('submit',function(e){
     groceries.push({
         item: e.target.elements.additem.value,
         price: e.target.elements.addprice.value,
-        left: e.target.elements.addquantity.value
+        left: e.target.elements.addquantity.value,
+        date: e.target.elements.adddate.value
     })
-    //renderGrocery(groceries,filters)
+    SaveItems(groceries)
+    renderGrocery(groceries,filters)
+    
     alert("Item Added")
     e.target.elements.additem.value = ''
     e.target.elements.addprice.value = ''
     e.target.elements.addquantity.value = ''
+    
 })
 
 

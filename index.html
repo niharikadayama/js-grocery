@@ -36,6 +36,10 @@
                     <th>Left</th>
                 </tr>
                 <tr class="left"></tr>
+                <tr>
+                    <th>Date</th>
+                </tr>
+                <tr class="date"></tr>
             </table>
         </div>
         <div>
@@ -43,6 +47,8 @@
                 <input type="text" placeholder="Add New Item" name="additem">
                 <input type="text" placeholder="Add price" name="addprice">
                 <input type="text" placeholder="Add quantity" name="addquantity">
+                <input type="date" name="adddate">
+                
                 <button id="add">Add Item</button>
             </form>
         </div>
@@ -50,8 +56,12 @@
             <button id="remove">Remove</button>
         </div>  
     </div>
-    
+    <p id="demo"></p>
+
+    <script src="grocery-function.js"></script>
     <script src="grocery.js"></script>
+    
+    
 
 </body>
 </html>
