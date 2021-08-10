@@ -22,7 +22,11 @@
         <div>
             <!-- Display -->
             <button id="display">Display</button>
-
+            <select id="filter-by">
+                <option value="byEdited">Sort by last edited</option>
+                <option value="byCreated">Sort by recently created</option>
+                <option value="alphabetical">Sort alphabetically</option>
+            </select>
             <table id="grocery">
                 <tr>   
                     <th>Item</th>  
@@ -48,18 +52,19 @@
                 <input type="text" placeholder="Add price" name="addprice">
                 <input type="text" placeholder="Add quantity" name="addquantity">
                 <input type="date" name="adddate">
-                
                 <button id="add">Add Item</button>
             </form>
         </div>
-        <div>
-            <button id="remove">Remove</button>
+        <div >
+            <button id="remove">Show List</button>
+            <div id="remove-div"></div>
         </div>  
     </div>
-    <p id="demo"></p>
-
+    
+    <script src="uuid.js"></script>
     <script src="grocery-function.js"></script>
     <script src="grocery.js"></script>
+    
     
     
 

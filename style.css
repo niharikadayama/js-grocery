@@ -35,8 +35,41 @@ button{
   font-size: 16px;
   border: 1px solid #f4d03f;
   border-radius: 10px;
-
 }
+
+button:hover{
+  background-color: #fef9e7;
+  color: #f4d03f;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #f4d03f;
+  border-radius: 10px;
+}
+
+#remove-div button{
+  background-color: #fef9e7;
+  color: #f4d03f;
+  padding: 5px 8px;
+  font-size: 16px;
+  border: 1px solid #f4d03f;
+  border-radius: 5px;
+  margin-left: 7px;
+}
+
+#remove-div button:hover{
+  background-color: #f4d03f;
+  color: #fef9e7;
+  padding: 5px 8px;
+  font-size: 16px;
+  border: 1px solid #f4d03f;
+  border-radius: 5px;
+}
+
+#remove-div{
+   margin-top: 10px;
+}
+
+
 table th{
   color: #f4d03f;
 }
@@ -60,4 +93,14 @@ form input{
   margin: 5px 100px;
   width: 50%;
   height: 30px;
+}
+select{
+  display: block;
+  padding: 7px;
+  margin: 10px 100px;
+  text-align: center;
+  background-color: #fef9e7;
+  color: #f4d03f;
+  border: 1px solid #f4d03f;
+  border-radius: 5px;
 }
