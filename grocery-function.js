@@ -1,6 +1,7 @@
 //Function to Fetch stored data
 const showSavedItem = function(){
     const groceryJson = localStorage.getItem('groceries')
+    
     if(groceryJson !==null){
         return JSON.parse(groceryJson)
     }else{
@@ -54,7 +55,7 @@ const generateDOM = function(grocery){
     //document.querySelector('#remove-div').innerHTML = ''
 
     const checkbox = document.createElement('input')
-    const groItem = document.createElement('span')
+    const groItem = document.createElement('a')
     const removeButton = document.createElement('button')
 
     //setup checkbox
@@ -64,6 +65,7 @@ const generateDOM = function(grocery){
 
     //setup item
     groItem.textContent = grocery.item
+    groItem.setAttribute('href', `/groceryEdit.html#${grocery.id}`)
     document.querySelector('#remove-div').appendChild(groItem)
 
     //setup button

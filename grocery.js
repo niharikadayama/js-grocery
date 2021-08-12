@@ -25,8 +25,12 @@ const summary = document.querySelector('#display').addEventListener('click',func
         document.querySelector('.left').appendChild(leftDisplay)
 
         const DateDisplay = document.createElement('td')
-        DateDisplay.textContent = grocery.date
+        DateDisplay.textContent = moment(grocery.Item_Created).format('D MMM YYYY')
         document.querySelector('.date').appendChild(DateDisplay)
+        
+        const upDateDisplay = document.createElement('td')
+        upDateDisplay.textContent = moment(grocery.Item_Updated).fromNow()
+        document.querySelector('.update').appendChild(upDateDisplay)
 
     })
 })
@@ -40,12 +44,15 @@ document.querySelector('#search').addEventListener('input',function(e){
 //
 document.querySelector('#addItem').addEventListener('submit',function(e){
     e.preventDefault()
+    const id= uuidv4()
+    const timestamp= moment().valueOf()
     groceries.push({
-        id: uuidv4(),
+        id: id,
         item: e.target.elements.additem.value,
         price: e.target.elements.addprice.value,
         left: e.target.elements.addquantity.value,
-        date: e.target.elements.adddate.value
+        Item_Created: timestamp,
+        Item_Updated: timestamp
     })
     SaveItems(groceries)
     renderGrocery(groceries,filters)
@@ -55,7 +62,7 @@ document.querySelector('#addItem').addEventListener('submit',function(e){
     e.target.elements.additem.value = ''
     e.target.elements.addprice.value = ''
     e.target.elements.addquantity.value = ''
-    e.target.elements.adddate.value = ''
+    
     
 })
 
@@ -64,6 +71,8 @@ document.querySelector('#remove').addEventListener('click',function(){
         generateDOM(grocery)
     })
 })
+
+
 
 
 

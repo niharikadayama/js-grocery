@@ -23,9 +23,9 @@
             <!-- Display -->
             <button id="display">Display</button>
             <select id="filter-by">
-                <option value="byEdited">Sort by last edited</option>
-                <option value="byCreated">Sort by recently created</option>
-                <option value="alphabetical">Sort alphabetically</option>
+                <option value="byLeft">Sort by Left</option>
+                <option value="byCreated">Sort by Recently Created</option>
+                <option value="alphabetical">Sort Items Alphabetically</option>
             </select>
             <table id="grocery">
                 <tr>   
@@ -41,9 +41,13 @@
                 </tr>
                 <tr class="left"></tr>
                 <tr>
-                    <th>Date</th>
+                    <th>Created</th>
                 </tr>
                 <tr class="date"></tr>
+                <tr>
+                    <th>Updated</th>
+                </tr>
+                <tr class="update"></tr>
             </table>
         </div>
         <div>
@@ -51,7 +55,6 @@
                 <input type="text" placeholder="Add New Item" name="additem">
                 <input type="text" placeholder="Add price" name="addprice">
                 <input type="text" placeholder="Add quantity" name="addquantity">
-                <input type="date" name="adddate">
                 <button id="add">Add Item</button>
             </form>
         </div>
@@ -62,6 +65,7 @@
     </div>
     
     <script src="uuid.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js" integrity="sha512-dMDTUgZkz1nUtYksAL8IisEkdCDNBuAC+mSnWRPlANDVvvVnGn9h3xKPOq6Bbr/2sRQMTf6SA7ZlRSnbs7TCAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="grocery-function.js"></script>
     <script src="grocery.js"></script>
     
