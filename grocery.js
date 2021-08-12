@@ -2,7 +2,8 @@ let groceries = showSavedItem()
 
 const filters = {
     searchText:'',
-    leftItem: 0
+    leftItem: 0,
+    sortby: 'byEdited'
 }
 
 //display-button
@@ -11,6 +12,7 @@ const summary = document.querySelector('#display').addEventListener('click',func
     document.querySelector('.price').innerHTML = ''
     document.querySelector('.left').innerHTML = ''
     document.querySelector('.date').innerHTML = '';
+    
     groceries.forEach(function(grocery){
         const itemDisplay = document.createElement('td')
         itemDisplay.textContent = grocery.item
@@ -35,13 +37,19 @@ const summary = document.querySelector('#display').addEventListener('click',func
     })
 })
 
+//filter
+document.querySelector('#filter-by').addEventListener('change', function (e) {
+    filters.sortby = e.target.value
+    sorting(groceries,filters)
+})
+
 //search-bar
 document.querySelector('#search').addEventListener('input',function(e){
     filters.searchText = e.target.value
     renderGrocery(groceries,filters)
 })
 
-//
+//Add
 document.querySelector('#addItem').addEventListener('submit',function(e){
     e.preventDefault()
     const id= uuidv4()
@@ -56,21 +64,20 @@ document.querySelector('#addItem').addEventListener('submit',function(e){
     })
     SaveItems(groceries)
     renderGrocery(groceries,filters)
-    
-    
+
     alert("Item Added")
     e.target.elements.additem.value = ''
     e.target.elements.addprice.value = ''
     e.target.elements.addquantity.value = ''
-    
-    
 })
 
+//remove
 document.querySelector('#remove').addEventListener('click',function(){
     groceries.forEach(function(grocery){
         generateDOM(grocery)
     })
 })
+
 
 
 
